@@ -31,7 +31,16 @@ dsh plugin --profile web add github:f0909172434/dsh-deepseek-girl-pet
 安裝後重新啟動 Harness：
 
 ```powershell
+# 先在原本執行 dsh web 的視窗按 Ctrl+C，確認 3080 已停止，再執行：
 dsh web
+```
+
+如果看到 `EADDRINUSE: address already in use 127.0.0.1:3080`，代表舊的 Harness 還在執行，不是安裝失敗。請先回到原本的 Harness 終端按 `Ctrl+C`，再重新執行 `dsh web`；最後在瀏覽器按 `Ctrl+F5` 強制重新載入。
+
+安裝時出現 `Issues with peer dependencies found` 是 profile 中其他外掛的 peer dependency 警告；只要後面顯示 `Done`，桌寵套件就已安裝。可用下列指令確認：
+
+```powershell
+dsh --profile web --dump-config | Select-String deepseek-girl-pet
 ```
 
 然後開啟 [http://127.0.0.1:3080/](http://127.0.0.1:3080/)。
