@@ -1,0 +1,34 @@
+{
+  "name": "dsh-deepseek-girl-pet",
+  "version": "0.1.1",
+  "description": "Animated deepseek girl desktop pet overlay for DeepSeek Harness",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "assets/spritesheet.webp",
+    "assets/deepseek-girl-harness-demo.gif",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT"
+}
