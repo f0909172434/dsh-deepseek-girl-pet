@@ -64,7 +64,7 @@ dsh --profile web --dump-config | Select-String deepseek-girl-pet
 git clone https://github.com/f0909172434/dsh-deepseek-girl-pet.git
 cd dsh-deepseek-girl-pet
 npm pack
-dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.1.1.tgz
+dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.2.0.tgz
 ```
 
 ## 狀態映射
@@ -76,7 +76,7 @@ dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.1.1.tgz
 | Pending interaction | 等待互動動畫 |
 | Pointer movement | 16 方向追視 |
 
-外掛直接讀取 Harness 的 Session summary state，不會用脆弱的 DOM 文字掃描猜測狀態。
+外掛直接讀取 Harness 的官方狀態來源——`useSessions` 的 Session summary（待機／工作）與 `useSessionPendingInteraction` 的等待互動 snapshot（等待）——不會用脆弱的 DOM 文字掃描猜測狀態。
 
 ## 技術方式
 
