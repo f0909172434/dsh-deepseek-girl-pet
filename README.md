@@ -20,6 +20,19 @@
 - 支援 `prefers-reduced-motion`
 - Codex pet v2 圖集：1536 × 2288 WebP、8 × 11、每格 192 × 208
 
+## 相容性
+
+| 外掛版本 | 需要的 DeepSeek Harness |
+|---|---|
+| 0.2.0 | `0.1.2-alpha.1`（含）以後 |
+| 0.1.1 | `0.1.0-rc.6` ～ `0.1.1-rc.2` |
+
+0.2.0 起改用 `dsh-client-ui-renderer`／`dsh-client-ui-session` 取得 slots 與 Session 狀態，並改讀獨立的 `useSessionPendingInteraction` snapshot——官方在 `0.1.2-alpha.1` 移除了舊的 `dsh-client-runtime` 套件，並把 pending interaction 從 session summary 移到獨立的 snapshot map。
+
+桌寵與其他 web profile 外掛可以同時安裝。已用官方 `cordis-plugin-include` 對 `dsh-base` + `dsh-web-app` + `@linxin666/dsh-web-all`（dsh-web 全家桶）+ 本外掛 + `dsh-plugin-verified-search` 的五層疊層做過組合驗證：169 個 entries、零重複 id、零缺漏、零警告；dsh-web 各套件的 HTTP 路由也與本外掛的 spritesheet 路由無碰撞。
+
+注意：dsh-web 內建桌寵（`@linxin666/dsh-pet`）預設出現在右下角（可拖曳、可在「Web 插件 → 桌寵」設定隱藏），與本桌寵的預設位置會有視覺重叠；兩者 API 層互不衝突，擇一顯示或拖開即可。
+
 ## 安裝
 
 ### 一行安裝
