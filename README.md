@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/readme-hero.svg" alt="DeepSeek Girl / Harness project header" width="100%" />
+</p>
+
 # deepseek娘 DeepSeek Harness 桌寵
 
 一個給 DeepSeek Harness Web UI 使用的開源 Cordis 桌寵外掛。她會待在介面右下角，依照目前 Session 狀態切換動畫，也會用 16 個方向跟著滑鼠看。
