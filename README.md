@@ -28,7 +28,7 @@
 
 | 外掛版本 | 需要的 DeepSeek Harness |
 |---|---|
-| 0.2.0 | `0.1.2-alpha.1`（含）以後 |
+| 0.2.0 | `0.1.2-alpha.1` 的來源介面；更高版本待驗證 |
 | 0.1.1 | `0.1.0-rc.6` ～ `0.1.1-rc.2` |
 
 0.2.0 起改用 `dsh-client-ui-renderer`／`dsh-client-ui-session` 取得 slots 與 Session 狀態，並改讀獨立的 `useSessionPendingInteraction` snapshot——官方在 `0.1.2-alpha.1` 移除了舊的 `dsh-client-runtime` 套件，並把 pending interaction 從 session summary 移到獨立的 snapshot map。
@@ -37,12 +37,16 @@
 
 注意：dsh-web 內建桌寵（`@linxin666/dsh-pet`）預設出現在右下角（可拖曳、可在「Web 插件 → 桌寵」設定隱藏），與本桌寵的預設位置會有視覺重叠；兩者 API 層互不衝突，擇一顯示或拖開即可。
 
+## 固定版本下載
+
+[0.2.0 TGZ 與 SHA-256](https://github.com/f0909172434/dsh-deepseek-girl-pet/releases/tag/v0.2.0) · [重現、驗證與還原](RELEASE.md)
+
 ## 安裝
 
 ### 一行安裝
 
 ```powershell
-dsh plugin --profile web add github:f0909172434/dsh-deepseek-girl-pet
+dsh plugin --profile web add github:f0909172434/dsh-deepseek-girl-pet#v0.2.0
 ```
 
 安裝後重新啟動 Harness：
@@ -54,7 +58,7 @@ dsh web
 
 如果看到 `EADDRINUSE: address already in use 127.0.0.1:3080`，代表舊的 Harness 還在執行，不是安裝失敗。請先回到原本的 Harness 終端按 `Ctrl+C`，再重新執行 `dsh web`；最後在瀏覽器按 `Ctrl+F5` 強制重新載入。
 
-安裝時出現 `Issues with peer dependencies found` 是 profile 中其他外掛的 peer dependency 警告；只要後面顯示 `Done`，桌寵套件就已安裝。可用下列指令確認：
+安裝時出現 `Issues with peer dependencies found`，需查看列出的套件與版本，不能假定警告與本外掛無關。`Done` 只表示套件管理步驟完成；先用下列指令確認設定，再檢查實際畫面與狀態切換：
 
 ```powershell
 dsh --profile web --dump-config | Select-String deepseek-girl-pet
@@ -91,6 +95,8 @@ dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.2.0.tgz
 - 不依賴外部 CDN 或追蹤服務
 
 ## 驗證
+
+新增的封裝校驗與 CI 範圍見 [RELEASE.md](RELEASE.md)。以下圖集與宿主畫面是既有紀錄，沒有因包裝更新而重新宣稱為新的宿主實測。
 
 - `node --check lib/index.js`
 - `node --check lib/client.js`

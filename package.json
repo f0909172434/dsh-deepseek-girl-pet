@@ -29,7 +29,16 @@
     "assets/spritesheet.webp",
     "assets/deepseek-girl-harness-demo.gif",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "RELEASE.md",
+    "SHA256SUMS",
+    "docs/assets/readme-hero.svg",
+    "scripts/verify.mjs",
+    "scripts/package.test.mjs"
   ],
+  "scripts": {
+    "test": "node --test scripts/package.test.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
   "license": "MIT"
 }
