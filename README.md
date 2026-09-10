@@ -109,3 +109,17 @@ dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.2.0.tgz
 本專案採用 [MIT License](LICENSE)。
 
 這是社群製作的非官方專案，與 DeepSeek、OpenAI 或 Codex 沒有從屬、合作或背書關係。`DeepSeek`、`Codex` 與相關名稱及標誌仍屬其各自權利人所有。
+
+## 共用圖集來源
+
+圖集的唯一維護來源是 [Codex pet](https://github.com/f0909172434/deepseek-girl-codex-pet) 的 `pet/spritesheet.webp`。本套件保留經 hash 核對的副本，執行時不下載圖集；host adapter 與安裝入口各自保留。完整 commit、路徑、SHA-256 與大小在 [`atlas-source.json`](atlas-source.json)。
+
+```bash
+npm run atlas:check
+node scripts/sync-atlas.mjs --source ../deepseek-girl-codex-pet
+# 或從 manifest 指定的完整 commit 下載（需要網路）：
+node scripts/sync-atlas.mjs --download
+npm test
+```
+
+更新圖集時，先在 Codex 來源完成 QA，再明確更新 manifest 的 commit/hash/大小與 `SHA256SUMS`，同步後跑測試。舊的 v0.2.0 release 保留原始 bytes；目前 main 的來源追蹤工具不代表新的 host 功能版本。

@@ -5,6 +5,12 @@ import {readFileSync, mkdirSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {root, verify} from './verify.mjs';
+import {checkAtlas, source} from './sync-atlas.mjs';
+
+test('canonical source is pinned and matches the distributed atlas', () => {
+  assert.match(source.commit, /^[a-f0-9]{40}$/);
+  assert.equal(checkAtlas(readFileSync(resolve(root, 'assets/spritesheet.webp'))), source.sha256);
+});
 
 test('asset and package entries are present and valid', () => {
   assert.deepEqual(verify().dimensions, [1536,2288]);

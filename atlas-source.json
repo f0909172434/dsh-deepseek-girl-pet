@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "repository": "f0909172434/deepseek-girl-codex-pet",
+  "commit": "2572709632b0e81401b9e92994f2c3786c186397",
+  "path": "pet/spritesheet.webp",
+  "sha256": "234f24a97c18195a00c6093da0090773e675993c169e92e7e13a24c37b323fa2",
+  "bytes": 2836976,
+  "license": "MIT",
+  "scope": "Shared atlas only; each host keeps its own adapter and installation package."
+}

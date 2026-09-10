@@ -34,11 +34,14 @@
     "SHA256SUMS",
     "docs/assets/readme-hero.svg",
     "scripts/verify.mjs",
-    "scripts/package.test.mjs"
+    "scripts/package.test.mjs",
+    "atlas-source.json",
+    "scripts/sync-atlas.mjs"
   ],
   "scripts": {
     "test": "node --test scripts/package.test.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "atlas:check": "node scripts/sync-atlas.mjs --check"
   },
   "license": "MIT"
 }
