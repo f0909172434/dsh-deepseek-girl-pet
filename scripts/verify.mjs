@@ -3,9 +3,11 @@ import {readFileSync, existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {dirname, resolve} from 'node:path';
+import {checkAtlas} from './sync-atlas.mjs';
 
 export const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export function verify(atlas = readFileSync(resolve(root, 'assets/spritesheet.webp'))) {
+  checkAtlas(atlas);
   const [expected, file] = readFileSync(resolve(root, 'SHA256SUMS'), 'utf8').trim().split(/\s+/);
   if (file !== 'assets/spritesheet.webp' || createHash('sha256').update(atlas).digest('hex') !== expected) {
     throw new Error('Atlas SHA-256 mismatch');
