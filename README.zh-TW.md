@@ -1,4 +1,4 @@
-[獨立繁體中文 README](README.zh-TW.md)
+[專案首頁](README.md) · **繁體中文**
 
 <p align="center">
   <img src="docs/assets/readme-hero.svg" alt="DeepSeek Girl / Harness project header" width="100%" />
