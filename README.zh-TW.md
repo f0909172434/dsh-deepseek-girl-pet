@@ -16,15 +16,15 @@
 
 ## 功能
 
-- DeepSeek Harness 原生 Cordis 外掛與 `shell.overlay` 擴充槽
-- 待機時拿著簡體「区」的板子，對話框文字維持「凶」
-- Harness 執行任務時切換至工作動畫
-- Session 等待互動時切換至等待動畫
-- 完整 16 方向滑鼠追視，每 22.5 度一格
-- 滑鼠停止 1.1 秒後回到拿板子的待機動畫
-- 點擊桌寵可在一般與放大尺寸間切換
-- 支援 `prefers-reduced-motion`
-- Codex pet v2 圖集：1536 × 2288 WebP、8 × 11、每格 192 × 208
+- 它是 DeepSeek Harness 原生的 Cordis 外掛，掛在 `shell.overlay` 擴充槽上。
+- 待機時她拿著寫有簡體「区」的板子，對話框裡的字則維持「凶」。
+- Harness 執行任務時，她會切換到工作動畫。
+- Session 等待互動時，她會切換到等待動畫。
+- 她會朝 16 個方向追著滑鼠看，每 22.5 度一格。
+- 滑鼠停止 1.1 秒後，她會回到拿板子的待機動畫。
+- 點一下桌寵，可以在一般與放大尺寸之間切換。
+- 外掛支援 `prefers-reduced-motion`。
+- 圖集採用 Codex pet v2 格式：1536 × 2288 的 WebP，8 × 11 格，每格 192 × 208。
 
 ## 相容性
 
@@ -33,15 +33,15 @@
 | 0.2.0 | `0.1.2-alpha.1` 的來源介面；更高版本待驗證 |
 | 0.1.1 | `0.1.0-rc.6` ～ `0.1.1-rc.2` |
 
-0.2.0 起改用 `dsh-client-ui-renderer`／`dsh-client-ui-session` 取得 slots 與 Session 狀態，並改讀獨立的 `useSessionPendingInteraction` snapshot——官方在 `0.1.2-alpha.1` 移除了舊的 `dsh-client-runtime` 套件，並把 pending interaction 從 session summary 移到獨立的 snapshot map。
+官方在 `0.1.2-alpha.1` 移除了舊的 `dsh-client-runtime` 套件，也把 pending interaction 從 session summary 移到獨立的 snapshot map。因此從 0.2.0 起，外掛改用 `dsh-client-ui-renderer`／`dsh-client-ui-session` 取得 slots 與 Session 狀態，並改讀獨立的 `useSessionPendingInteraction` snapshot。
 
-桌寵與其他 web profile 外掛可以同時安裝。已用官方 `cordis-plugin-include` 對 `dsh-base` + `dsh-web-app` + `@linxin666/dsh-web-all`（dsh-web 全家桶）+ 本外掛 + `dsh-plugin-verified-search` 的五層疊層做過組合驗證：169 個 entries、零重複 id、零缺漏、零警告；dsh-web 各套件的 HTTP 路由也與本外掛的 spritesheet 路由無碰撞。
+桌寵可以和其他 web profile 外掛同時安裝。我們用官方的 `cordis-plugin-include`，對五層疊層做過組合驗證，依序是 `dsh-base`、`dsh-web-app`、dsh-web 全家桶 `@linxin666/dsh-web-all`、本外掛與 `dsh-plugin-verified-search`。結果是 169 個 entries，沒有重複的 id，沒有缺漏，也沒有警告。dsh-web 各套件的 HTTP 路由，也沒有和本外掛的 spritesheet 路由衝突。
 
-注意：dsh-web 內建桌寵（`@linxin666/dsh-pet`）預設出現在右下角（可拖曳、可在「Web 插件 → 桌寵」設定隱藏），與本桌寵的預設位置會有視覺重叠；兩者 API 層互不衝突，擇一顯示或拖開即可。
+要注意的是，dsh-web 內建的桌寵 `@linxin666/dsh-pet` 預設也出現在右下角，所以兩隻桌寵在畫面上會重疊。內建桌寵可以拖曳，也可以在「Web 插件 → 桌寵」設定裡隱藏。兩者在 API 層互不衝突，只要擇一顯示或把其中一隻拖開即可。
 
 ## 固定版本下載
 
-[0.2.0 TGZ 與 SHA-256](https://github.com/f0909172434/dsh-deepseek-girl-pet/releases/tag/v0.2.0) · [重現、驗證與還原](RELEASE.md)
+固定版本的 TGZ 與它的 SHA-256 放在 [0.2.0 TGZ 與 SHA-256](https://github.com/f0909172434/dsh-deepseek-girl-pet/releases/tag/v0.2.0)。如何重現、驗證與還原，寫在 [重現、驗證與還原](RELEASE.md)。
 
 ## 安裝
 
@@ -51,16 +51,16 @@
 dsh plugin --profile web add github:f0909172434/dsh-deepseek-girl-pet#v0.2.0
 ```
 
-安裝後重新啟動 Harness：
+安裝後要重新啟動 Harness：
 
 ```powershell
 # 先在原本執行 dsh web 的視窗按 Ctrl+C，確認 3080 已停止，再執行：
 dsh web
 ```
 
-如果看到 `EADDRINUSE: address already in use 127.0.0.1:3080`，代表舊的 Harness 還在執行，不是安裝失敗。請先回到原本的 Harness 終端按 `Ctrl+C`，再重新執行 `dsh web`；最後在瀏覽器按 `Ctrl+F5` 強制重新載入。
+如果看到 `EADDRINUSE: address already in use 127.0.0.1:3080`，代表舊的 Harness 還在執行，並不是安裝失敗。請先回到原本的 Harness 終端機按 `Ctrl+C`，再重新執行 `dsh web`，最後在瀏覽器按 `Ctrl+F5` 強制重新載入。
 
-安裝時出現 `Issues with peer dependencies found`，需查看列出的套件與版本，不能假定警告與本外掛無關。`Done` 只表示套件管理步驟完成；先用下列指令確認設定，再檢查實際畫面與狀態切換：
+如果安裝時出現 `Issues with peer dependencies found`，請查看它列出的套件與版本，不要假定這個警告與本外掛無關。看到 `Done` 只表示套件管理的步驟完成了。請先用下面的指令確認設定，再檢查實際畫面與狀態切換：
 
 ```powershell
 dsh --profile web --dump-config | Select-String deepseek-girl-pet
@@ -86,19 +86,19 @@ dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.2.0.tgz
 | Pending interaction | 等待互動動畫 |
 | Pointer movement | 16 方向追視 |
 
-外掛直接讀取 Harness 的官方狀態來源——`useSessions` 的 Session summary（待機／工作）與 `useSessionPendingInteraction` 的等待互動 snapshot（等待）——不會用脆弱的 DOM 文字掃描猜測狀態。
+外掛直接讀取 Harness 官方提供的狀態來源。待機與工作狀態來自 `useSessions` 的 Session summary，等待狀態來自 `useSessionPendingInteraction` 的等待互動 snapshot。它不會靠掃描 DOM 文字來猜狀態，因為那種做法很容易壞掉。
 
 ## 技術方式
 
-- Host plugin 只在 `/deepseek-girl-pet/spritesheet.webp` 提供固定 WebP 圖集
-- Client plugin 只註冊 `shell.overlay` slot
-- 不修改 DeepSeek Harness 核心檔案
-- 不讀取或寫入對話內容
-- 不依賴外部 CDN 或追蹤服務
+- Host plugin 只做一件事：在 `/deepseek-girl-pet/spritesheet.webp` 提供固定的 WebP 圖集。
+- Client plugin 只註冊 `shell.overlay` 這一個 slot。
+- 外掛不修改 DeepSeek Harness 的核心檔案。
+- 外掛不讀取也不寫入對話內容。
+- 外掛不依賴外部 CDN 或任何追蹤服務。
 
 ## 驗證
 
-新增的封裝校驗與 CI 範圍見 [RELEASE.md](RELEASE.md)。以下圖集與宿主畫面是既有紀錄，沒有因包裝更新而重新宣稱為新的宿主實測。
+新增的封裝校驗與 CI 涵蓋的範圍寫在 [RELEASE.md](RELEASE.md)。下列的圖集檢查與宿主畫面是先前留下的紀錄。這次更新的是封裝方式，並沒有在宿主上重新實測，所以不把它們當成新的實測結果。
 
 - `node --check lib/index.js`
 - `node --check lib/client.js`
@@ -114,7 +114,7 @@ dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.2.0.tgz
 
 ## 共用圖集來源
 
-圖集的唯一維護來源是 [Codex pet](https://github.com/f0909172434/deepseek-girl-codex-pet) 的 `pet/spritesheet.webp`。本套件保留經 hash 核對的副本，執行時不下載圖集；host adapter 與安裝入口各自保留。完整 commit、路徑、SHA-256 與大小在 [`atlas-source.json`](atlas-source.json)。
+圖集只在一個地方維護，就是 [Codex pet](https://github.com/f0909172434/deepseek-girl-codex-pet) 的 `pet/spritesheet.webp`。本套件保留一份經過 hash 核對的副本，執行時不會下載圖集。host adapter 與安裝入口則由兩個 repo 各自維護。來源的完整 commit、路徑、SHA-256 與大小記在 [`atlas-source.json`](atlas-source.json)。
 
 ```bash
 npm run atlas:check
@@ -124,4 +124,4 @@ node scripts/sync-atlas.mjs --download
 npm test
 ```
 
-更新圖集時，先在 Codex 來源完成 QA，再明確更新 manifest 的 commit/hash/大小與 `SHA256SUMS`，同步後跑測試。舊的 v0.2.0 release 保留原始 bytes；目前 main 的來源追蹤工具不代表新的 host 功能版本。
+要更新圖集時，先在 Codex 那邊完成 QA，再明確更新 manifest 裡的 commit、hash、大小與 `SHA256SUMS`，同步之後跑測試。舊的 v0.2.0 release 保留原本的 bytes。目前 main 上新增的來源追蹤工具，並不代表推出了新的 host 功能版本。
