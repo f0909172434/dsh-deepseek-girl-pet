@@ -41,14 +41,14 @@
 
 ## 固定版本下載
 
-固定版本的 TGZ 與它的 SHA-256 放在 [0.2.0 TGZ 與 SHA-256](https://github.com/f0909172434/dsh-deepseek-girl-pet/releases/tag/v0.2.0)。如何重現、驗證與還原，寫在 [重現、驗證與還原](RELEASE.md)。
+固定版本的 TGZ 與它的 SHA-256 放在 [0.2.0 TGZ 與 SHA-256](https://github.com/Chih-Kai-Wang/dsh-deepseek-girl-pet/releases/tag/v0.2.0)。如何重現、驗證與還原，寫在 [重現、驗證與還原](RELEASE.md)。
 
 ## 安裝
 
 ### 一行安裝
 
 ```powershell
-dsh plugin --profile web add github:f0909172434/dsh-deepseek-girl-pet#v0.2.0
+dsh plugin --profile web add github:Chih-Kai-Wang/dsh-deepseek-girl-pet#v0.2.0
 ```
 
 安裝後要重新啟動 Harness：
@@ -71,7 +71,7 @@ dsh --profile web --dump-config | Select-String deepseek-girl-pet
 ### 從原始碼安裝
 
 ```powershell
-git clone https://github.com/f0909172434/dsh-deepseek-girl-pet.git
+git clone https://github.com/Chih-Kai-Wang/dsh-deepseek-girl-pet.git
 cd dsh-deepseek-girl-pet
 npm pack
 dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.2.0.tgz
@@ -114,7 +114,7 @@ dsh plugin --profile web add .\dsh-deepseek-girl-pet-0.2.0.tgz
 
 ## 共用圖集來源
 
-圖集只在一個地方維護，就是 [Codex pet](https://github.com/f0909172434/deepseek-girl-codex-pet) 的 `pet/spritesheet.webp`。本套件保留一份經過 hash 核對的副本，執行時不會下載圖集。host adapter 與安裝入口則由兩個 repo 各自維護。來源的完整 commit、路徑、SHA-256 與大小記在 [`atlas-source.json`](atlas-source.json)。
+圖集只在一個地方維護，就是 [Codex pet](https://github.com/Chih-Kai-Wang/deepseek-girl-codex-pet) 的 `pet/spritesheet.webp`。本套件保留一份經過 hash 核對的副本，執行時不會下載圖集。host adapter 與安裝入口則由兩個 repo 各自維護。來源的完整 commit、路徑、SHA-256 與大小記在 [`atlas-source.json`](atlas-source.json)。
 
 ```bash
 npm run atlas:check

@@ -39,5 +39,5 @@
   `234F24A97C18195A00C6093DA0090773E675993C169E92E7E13A24C37B323FA2`。
 - 適用 DeepSeek Harness `0.1.0-rc.6` ～ `0.1.1-rc.2`。
 
-[0.2.0]: https://github.com/f0909172434/dsh-deepseek-girl-pet/compare/v0.1.1...v0.2.0
-[0.1.1]: https://github.com/f0909172434/dsh-deepseek-girl-pet/releases/tag/v0.1.1
+[0.2.0]: https://github.com/Chih-Kai-Wang/dsh-deepseek-girl-pet/compare/v0.1.1...v0.2.0
+[0.1.1]: https://github.com/Chih-Kai-Wang/dsh-deepseek-girl-pet/releases/tag/v0.1.1

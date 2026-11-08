@@ -5,7 +5,7 @@
 
 ## 固定版本安裝
 
-從 [v0.2.0 release](https://github.com/f0909172434/dsh-deepseek-girl-pet/releases/tag/v0.2.0)
+從 [v0.2.0 release](https://github.com/Chih-Kai-Wang/dsh-deepseek-girl-pet/releases/tag/v0.2.0)
 下載 `dsh-deepseek-girl-pet-0.2.0.tgz` 與 `SHA256SUMS`，比對檔案雜湊後安裝：
 
 ```powershell

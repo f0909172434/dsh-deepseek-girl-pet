@@ -24,7 +24,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   } else if (args.length === 2 && args[0] === '--source') {
     synchronize(readFileSync(resolve(args[1], source.path)));
   } else if (args.length === 1 && args[0] === '--download') {
-    if (!/^[a-f0-9]{40}$/.test(source.commit) || source.repository !== 'f0909172434/deepseek-girl-codex-pet' || source.path !== 'pet/spritesheet.webp') {
+    if (!/^[a-f0-9]{40}$/.test(source.commit) || source.repository !== 'Chih-Kai-Wang/deepseek-girl-codex-pet' || source.path !== 'pet/spritesheet.webp') {
       throw new Error('Unexpected canonical source');
     }
     const response = await fetch(`https://raw.githubusercontent.com/${source.repository}/${source.commit}/${source.path}`, {signal:AbortSignal.timeout(30000)});
